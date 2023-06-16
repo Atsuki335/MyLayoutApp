@@ -1,41 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // //向き指定
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp, //縦固定
+  // ]);
   runApp(MyLayoutApp());
 }
 
 class MyLayoutApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final titleText = Container(
+    final titleText = Padding(
       //1 strawberry
-      height: 20,
-      width: 150,
+      padding: EdgeInsets.all(20),
       child: const Text(
         'Strawberry Pvlova',
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w800,
-          fontFamily: 'Roboto',
-        ),
+            fontSize: 30, fontWeight: FontWeight.w800, letterSpacing: 0.5),
       ),
     );
-    final subTitle = Container(
-        padding: EdgeInsets.fromLTRB(10, 8, 10, 0),
-        //2 pavlova
-        height: 100,
-        width: 200,
-        child: const Text(
-          //改行\n
-          'Pavlova is a meringue-based dessert \n named after the Russian \n ballerine Anna Pavlova. Pavlova \n featues a crisp crust and soft, \n light inside,topped with fruit and \n whipped cream.',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'Roboto',
-          ),
-        ));
+    final subTitle = Text(
+      //2 pavlova
+      //改行\n
+      'Pavlova is a meringue-based dessert named after the Russian ballerine \n Anna Pavlova. Pavlova  featues a crisp crust and soft, light inside, \n topped with fruit and whipped cream.',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        fontFamily: 'Georgia',
+      ),
+    );
 
     var stars = Row(
         //見やすくするためにスターのまとまりを変数にする
@@ -43,15 +41,15 @@ class MyLayoutApp extends StatelessWidget {
         //子要素間をぎゅうぎゅうに
         //枠中１　★
         children: [
-          const Icon(Icons.star, color: Colors.black, size: 10),
-          const Icon(Icons.star, color: Colors.black, size: 10),
-          const Icon(Icons.star, color: Colors.black, size: 10),
-          const Icon(Icons.star, color: Colors.black, size: 10),
-          const Icon(Icons.star, color: Colors.black, size: 10)
+          Icon(Icons.star, color: Colors.green[500]),
+          Icon(Icons.star, color: Colors.green[500]),
+          Icon(Icons.star, color: Colors.green[500]),
+          const Icon(Icons.star, color: Colors.black),
+          const Icon(Icons.star, color: Colors.black)
         ]);
 
     final ratings = Container(
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      padding: EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -63,7 +61,7 @@ class MyLayoutApp extends StatelessWidget {
                 fontWeight: FontWeight.w800,
                 fontFamily: 'Roboto',
                 letterSpacing: 0.5,
-                fontSize: 10),
+                fontSize: 20),
           )
         ],
       ),
@@ -75,7 +73,7 @@ class MyLayoutApp extends StatelessWidget {
       fontWeight: FontWeight.w800,
       fontFamily: 'Roboto',
       letterSpacing: 0.5,
-      fontSize: 8,
+      fontSize: 18,
       height: 2,
     );
 
@@ -122,7 +120,7 @@ class MyLayoutApp extends StatelessWidget {
             )));
 
     final leftColumn = Container(
-      padding: const EdgeInsets.fromLTRB(10, 30, 20, 20),
+      padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
       child: Column(
         children: [
           titleText,
@@ -137,17 +135,17 @@ class MyLayoutApp extends StatelessWidget {
         title: 'Flutter layout demo',
         home: Scaffold(
             appBar: AppBar(
-              title: const Text('Flutter layout demo'),
+              title: const Text('Strawberry Pavlova Recipe'),
             ),
             body: Center(
                 child: Container(
-                    margin: const EdgeInsets.fromLTRB(0, 200, 0, 250),
+                    margin: const EdgeInsets.fromLTRB(0, 40, 0, 30),
                     height: 600,
                     child: Card(
                         child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                          SizedBox(width: 230, child: leftColumn),
+                          SizedBox(width: 440, child: leftColumn),
                           Expanded(
                             child: Image.asset('images/pavlova.jpeg'),
                           )
