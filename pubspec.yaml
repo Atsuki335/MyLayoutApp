@@ -78,7 +78,7 @@ flutter:
   fonts:
    - family: PlayfairDisplay
      fonts: 
-     - asset: /Users/izu/Library/Fonts/PlayfairDisplay-Italic.ttf
+     - asset: Fonts/PlayfairDisplay-Italic.ttf
         
   #         style: italic
   #   - family: Trajan Pro

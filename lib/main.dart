@@ -20,10 +20,7 @@ class MyLayoutApp extends StatelessWidget {
         'Strawberry Pvlova',
         textAlign: TextAlign.center,
         style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.w800,
-            fontFamily: 'Roboto',
-            letterSpacing: 0.5),
+            fontSize: 30, fontWeight: FontWeight.w800, letterSpacing: 0.5),
       ),
     );
     final subTitle = Text(
